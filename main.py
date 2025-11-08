@@ -181,7 +181,6 @@ def registrar_voo():
                 # Login Credentials for sending the mail
                 s.login(msg['From'], password)
                 s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
-                print("Email enviado")
             @scheduler.task(
                 'date',
                 id='email_3h',
@@ -240,4 +239,5 @@ if __name__=='__main__':
     scheduler.init_app(app)
     scheduler.start()
     app.run(debug=True)
+
 
